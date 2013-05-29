@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="jslibs/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="jslibs/json2.js"></script>
+	<script type="text/javascript">
+	   $(document).ready(function() {
+		   $("#get_text").button().click(function() {               
+               $.ajax({
+                   url:'Data',
+                   type:'post',
+                   error:function(xhr,status,e){
+                       if (e) {
+                           alert('Error='+e);
+                       }
+                   },
+                   success: function(jsonData){
+                	   alert(jsonData.Eng);
+                       alert(jsonData.text);
+                       
+                   }
+               });
+           });
+	   });
+	</script>
+</head>
+<body>
+	<input type="button" id="get_text" value="스트링 가져오기"/>
+</body>
+</html>
